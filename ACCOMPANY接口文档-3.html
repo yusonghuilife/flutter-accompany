@@ -1,0 +1,3321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>ACCOMPANY接口文档-ApiPost</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="接口文档,ApiPost">
+<meta name="description" content="本文档由可直接生成文档的API调试、管理工具ApiPost生成">
+<!--自适应声明部分-->
+<meta name="applicable-device" content="pc" />
+<link rel="shortcut icon" href="https://console.apipost.cn/favicon.ico">
+<link rel="stylesheet" type="text/css" href="https://img.cdn.apipost.cn/statics/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="https://img.cdn.apipost.cn/statics/build-in/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://img.cdn.apipost.cn/statics/build-in/bootstrap/css/document.css?v=2152">
+<link rel="stylesheet" type="text/css" href="https://img.cdn.apipost.cn/statics/build-in/bootstrap/css/markdown.css?v=1326">
+<link rel="stylesheet" type="text/css" href="https://img.cdn.apipost.cn/statics/build-in/nprogress-0.2.0/nprogress.css">
+<script type="text/javascript" src="https://img.cdn.apipost.cn/statics/build-in/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://img.cdn.apipost.cn/statics/build-in/clipboard.js-master/clipboard.min.js"></script>
+<script type="text/javascript" src="https://img.cdn.apipost.cn/statics/build-in/nprogress-0.2.0/nprogress.js"></script>
+<script type="text/javascript" src="https://img.cdn.apipost.cn/statics/build-in/bootstrap/js/bootstrap.js"></script>
+<script language="javascript">
+	$(function(){
+		let _left_menus = [{"folder_id":"4914","name":"Accompany-\u533b\u751f","sort":"0","menu":[{"apiid":"57349","name":"\u533b\u751f\u6ce8\u518c","sort":"0"},{"apiid":"57209","name":"\u533b\u751f\u767b\u5f55","sort":"0"},{"apiid":"43922","name":"\u4fee\u6539\u75c5\u4eba\u57fa\u672c\u4fe1\u606f","sort":"0"},{"apiid":"43913","name":"\u6dfb\u52a0\u65b0\u7684\u75c5\u60c5\u4fe1\u606f","sort":"0"},{"apiid":"43998","name":"\u67e5\u770b\u9884\u7ea6\u8be6\u60c5","sort":"1"},{"apiid":"44002","name":"\u5904\u7406\u9884\u7ea6\uff08\u5b8c\u6210\uff09","sort":"2"},{"apiid":"43944","name":"\u5c31\u8bca\u8bb0\u5f55-\u4e00\u5468\u5185","sort":"3"},{"apiid":"43951","name":"\u5c31\u8bca\u8bb0\u5f55-\u53ea\u6709\u9884\u7ea6","sort":"4"},{"apiid":"43909","name":"\u67e5\u770b\u75c5\u4eba\u57fa\u672c\u4fe1\u606f\u548c\u8054\u7cfb\u4eba\u4fe1\u606f","sort":"5"},{"apiid":"43905","name":"\u67e5\u770b\u75c5\u4eba\u75c5\u60c5\u4fe1\u606f","sort":"6"},{"apiid":"43881","name":"\u6dfb\u52a0\u75c5\u4eba","sort":"7"},{"apiid":"43873","name":"\u83b7\u53d6\u75c5\u4eba\u5217\u8868","sort":"8"},{"apiid":"43898","name":"\u641c\u7d22\u75c5\u4eba","sort":"9"}]},{"folder_id":"4930","name":"Accompany-\u76d1\u62a4\u4eba","sort":"0","menu":[{"apiid":"57658","name":"\u76d1\u62a4\u4eba\u67e5\u770b\u75c5\u5386","sort":"0"},{"apiid":"57419","name":"\u76d1\u62a4\u4eba\u6ce8\u518c","sort":"0"},{"apiid":"57402","name":"\u76d1\u62a4\u4eba\u767b\u5f55","sort":"0"},{"apiid":"44060","name":"\u53d6\u6d88\u9884\u7ea6","sort":"0"},{"apiid":"44053","name":"\u67e5\u770b\u9884\u7ea6","sort":"0"},{"apiid":"44052","name":"\u9884\u7ea6\u5c31\u8bca","sort":"0"},{"apiid":"44045","name":"\u67e5\u770b\u533b\u5631","sort":"0"}]}];
+		let _init_apiid = 57658;
+
+		//排序
+		_left_menus.sort(function(a, b){
+			return a.sort - b.sort;
+		});
+
+		if(window.location.hash){
+			let _hash_apiid = parseInt(window.location.hash.substr(1));
+			_init_apiid = _hash_apiid ? _hash_apiid : _init_apiid;
+		}
+
+		//收缩文档页面左侧菜单
+        let _is_pull = 0;
+        $('.document-pull-left').click(function(){
+            _is_pull = !_is_pull;
+
+            if(_is_pull){
+                $(".book-summary").css("left","-300px");
+                $(".book-body").css("left","0");
+            }else{
+                $(".book-summary").css("left","0");
+                $(".book-body").css("left","300px");
+            }
+        });
+
+        //文档上一页
+        $('.navigation-prev').click(function(){
+        	// let _length = $('.load-api-btn').length;
+        	let _index = Math.max($('.load-api-btn').index($('.load-api-btn.active')) - 1, 0);
+        	let _apiid = parseInt($('.load-api-btn').eq(_index).attr('data-id'));
+
+        	_load_document(_apiid);
+        });
+
+        //文档下一页 
+        $('.navigation-next').click(function(){
+        	let _length = $('.load-api-btn').length;
+        	let _index = Math.min($('.load-api-btn').index($('.load-api-btn.active')) + 1, _length - 1);
+        	let _apiid = parseInt($('.load-api-btn').eq(_index).attr('data-id'));
+
+        	_load_document(_apiid);
+        });
+
+		//分享文档地址 
+        $(".export-document-link-btn").click(function() {
+            $(this).attr('data-clipboard-text', 'https://console.apipost.cn/doc/10459');
+            let _clipboard = new ClipboardJS('.export-document-link-btn');
+            _clipboard.on('success', function(e) {
+                alert('文档地址复制成功，您可以转发给您的小伙伴啦~');
+                e.clearSelection();
+                return true;
+            });
+
+            _clipboard.on('error', function(e) {
+                alert('复制失败，请重试');
+                return false;
+            });
+        });
+
+		//加载左侧菜单
+		_load_menu();
+		$('.api-search-word').on('input change', function(){
+			_load_menu();
+		});
+
+		$('.document-summary').on('click', '.load-api-btn', function(){
+			let _this = this;
+			let _apiid = parseInt($(_this).attr('data-id'));
+			_load_document(_apiid);
+		}).on('click', 'a[data-type="category"]', function(){
+			$(this).next('.articles').toggle();
+
+			if($(this).children('.fa').eq(0).hasClass('fa-folder-open-o')){
+				$(this).children('.fa').eq(0).addClass('fa-folder-o').removeClass('fa-folder-open-o');
+			}else{
+				$(this).children('.fa').eq(0).addClass('fa-folder-open-o').removeClass('fa-folder-o');
+			}
+		});
+
+		//加载右侧文档
+		_load_document(_init_apiid);
+
+		//私有函数
+		//加载右侧文档函数
+		function _load_document(_apiid){
+			NProgress.start();
+			$('.chapter').removeClass('active');
+			$('.chapter[data-id="'+_apiid+'"]').addClass('active');
+			$('.page-wrapper').addClass('hide');
+			$('.page-wrapper[tabindex="'+_apiid+'"]').removeClass('hide');
+			$('.load-api-btn').removeClass('active');
+			$('.load-api-btn[data-id="'+_apiid+'"]').addClass('active');
+
+			//隐藏空的元素
+			$('.document-block-div').each(function(){
+				let _this = this;
+				let _length = $(_this).find('tbody').eq(0).children().length;
+				// console.log(_length);
+				if(!_length){
+					$(_this).hide();
+				}
+			});
+
+			window.location.hash='#' + _apiid;
+			NProgress.done();
+		}
+
+		//加载左侧菜单函数
+        function _load_menu(){
+        	let _keyword = $.trim($('.api-search-word').val());
+
+        	//左侧渲染
+	        $('.document-summary').empty();
+	        for(let _x in _left_menus){
+	            let _html = '<li class="chapter">';
+	            	_html += '   <a href="javascript:;" data-type="category" data-id="' + _left_menus[_x].folder_id + '"><i class="fa fa-folder-open-o" aria-hidden="true"></i><strong>' + _left_menus[_x].name + '</strong></a>';
+	                _html += '   <ul class="articles">';
+
+	                _left_menus[_x].menu.sort(function(a, b){
+	                	return a.sort - b.sort;
+	                });
+	                
+		            for(let _l in _left_menus[_x].menu){
+		            	if(_left_menus[_x].menu[_l].name.indexOf(_keyword) > -1 || _keyword == ''){
+		            		_html += '<li class="chapter ' + (parseInt(_left_menus[_x].menu[_l].apiid) == _init_apiid ? 'active':'') + '" data-id="' + _left_menus[_x].menu[_l].apiid + '"><a class="load-api-btn" href="#' + _left_menus[_x].menu[_l].apiid + '" data-type="api" data-id="' + _left_menus[_x].menu[_l].apiid + '"><i class="fa fa-file-text-o" aria-hidden="true"></i>' + _left_menus[_x].menu[_l].name + ' </a> </li>';
+		            	}
+		            }
+		            _html += '   </ul>';
+		            _html += '</li>';
+
+	            $('.document-summary').append(_html);
+	        }
+        }
+	});
+</script>
+<style type="text/css">
+	/*common.css*/
+	*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-overflow-scrolling:touch;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:none;-webkit-touch-callout:none;-webkit-font-smoothing:antialiased;font-family:..., "PingFangSC-Regular", "sans-serif", "Hiragino Sans GB", "Microsoft YaHei","WenQuanYi Micro Hei", sans-serif;font-size: .9rem!important ;  outline: none!important;}
+	html{outline: none!important;}
+	body{background:#f5f7fa}
+	a{text-decoration: none}
+	a:hover{text-decoration: none}
+	img{border:0;}
+	a:focus,button:focus{box-shadow: none!important;}
+
+	/*共用按钮*/
+	/*橙色*/
+	.btn-orange{ background-color: #ff5722!important; border-color: #ff5722!important;color:#fff;}
+	.btn-orange:hover{background-color: #f76b40!important;color:#fff;}
+
+	/*灰色*/
+	.btn-gray{background-color: #e9ecef!important;color: #6c757d!important;}
+	.btn-gray:hover{background-color: #dee2e6!important;color: #6c757d!important;}
+
+	/*弹窗*/
+	.modal.show .modal-dialog{top:180px!important;}
+	.modal-title{font-size: 1.05rem!important}
+	.modal-header {display: -ms-flexbox;display: flex;-ms-flex-align: start;align-items: flex-start;-ms-flex-pack: justify;justify-content: space-between;background-color: #353644;padding: 10px 20px;color: #fff;border-top-left-radius: 0!important;border-top-right-radius: 0!important;}
+	button.close{font-size: 18px!important; color: #fff!important}
+	.modal-mm{max-width: 400px}
+	.modal-body .alert-warning {width: 100%;
+	}
+	/*图标 /*/
+	.fa{margin-right:8px}
+</style>
+</head>
+<body>
+<div class="book">
+  	<div class="book-summary">
+    	<div id="book-search-input" role="search">
+      		<input type="text" class="api-search-word" placeholder="输入关键词搜索文档">
+      	</div>
+    	<nav>
+      		<ul class="summary document-summary"></ul>
+    	</nav>
+  	</div>
+  	<div class="book-body">
+    	<div class="no-apis"></div>
+    	<div class="body-inner">
+	      	<div class="book-header">
+		        <div class="dropdown">
+		          	<a class="btn pull-left document-pull-left" href="javascript:;">&nbsp;
+		            	<i class="fa fa-align-justify"></i></a>
+		          	<a class="btn" href="https://console.apipost.cn/doc/createHtml/10459" target="_blank">
+		            	<i class="fa fa-html5" aria-hidden="true"></i>导出HTMl</a>
+		            	<!-- <a class="dropdown-item export-md-btn" href="javascript:;"><i class="fa fa-file-code-o" aria-hidden="true"></i>导出MD</a> -->
+		            <a class="btn export-btn" href="https://console.apipost.cn/doc/createMD/10459" target="_blank">
+		            	<i class="fa fa-file-code-o" aria-hidden="true"></i>导出MarkDown</a>
+		          	<a class="btn export-btn" href="https://console.apipost.cn/doc/createDocx/10459" target="_blank">
+		            	<i class="fa fa-file-word-o" aria-hidden="true"></i>导出Doc</a>
+		            <a class="btn export-btn" href="https://console.apipost.cn/doc/createPdf/10459" target="_blank">
+		            	<i class="fa fa-file-pdf-o" aria-hidden="true"></i>导出Pdf</a>
+		          	<a class="btn export-document-link-btn" href="javascript:;">
+		            	<i class="fa fa-external-link" aria-hidden="true"></i>复制文档地址</a>
+		        </div>
+		        <h1><!-- ACCOMPANY接口文档 --></h1>
+	    	</div>
+	    		    	<div class="page-wrapper hide" tabindex="57658" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>监护人查看病历</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>http://127.0.0.1:8000/treatships/guardian_get_treat_info/?patient_id=74574</code>
+	            		<h4>请求方式</h4>
+	            		<code>GET</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            			            		<div class="document-block-div request_query-div">
+		            		<h4>请求Query参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>patient_id</th>
+			                  			<td>74574</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_header -->
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            			            		<h4>成功响应示例</h4>
+	            		<pre><code>[
+    {
+        "id": 13,
+        "doctor": {
+            "url": "http:\/\/127.0.0.1:8000\/doctors\/633736\/",
+            "patients": [
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/",
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/"
+            ],
+            "name": "ndv",
+            "doctor_id": "633736",
+            "phone_number": "899",
+            "working_unit": "wuhanuniversity",
+            "working_num": "63476373",
+            "working_title": "医生",
+            "resume": "gqahsh哈哈哈哈哈哈",
+            "password": "737"
+        },
+        "patient": {
+            "patient_id": "74574",
+            "name": "sedv",
+            "password": "477436",
+            "phone_number": "678",
+            "longitude": null,
+            "latitude": null,
+            "heart_rate": null,
+            "blood_pressure": null,
+            "step_number": null,
+            "gender": null,
+            "marriage": null,
+            "age": "21",
+            "job": null,
+            "nation": null,
+            "native_place": null,
+            "address": null,
+            "main_illness": "抑郁症"
+        },
+        "guardian": {
+            "url": "http:\/\/127.0.0.1:8000\/guardians\/7548\/",
+            "cares": [],
+            "name": "hys",
+            "password": "41234",
+            "phone_number": "412415",
+            "guardian_id": "7548"
+        },
+        "illness_now": "焦虑症",
+        "illness_past": "抑郁症",
+        "sub_visit_time": "2019-08-20",
+        "treatment": "观察治疗",
+        "medicine": "打针",
+        "treat_time": "2019-07-04"
+    },
+    {
+        "id": 11,
+        "doctor": {
+            "url": "http:\/\/127.0.0.1:8000\/doctors\/633736\/",
+            "patients": [
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/",
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/"
+            ],
+            "name": "ndv",
+            "doctor_id": "633736",
+            "phone_number": "899",
+            "working_unit": "wuhanuniversity",
+            "working_num": "63476373",
+            "working_title": "医生",
+            "resume": "gqahsh哈哈哈哈哈哈",
+            "password": "737"
+        },
+        "patient": {
+            "patient_id": "74574",
+            "name": "sedv",
+            "password": "477436",
+            "phone_number": "678",
+            "longitude": null,
+            "latitude": null,
+            "heart_rate": null,
+            "blood_pressure": null,
+            "step_number": null,
+            "gender": null,
+            "marriage": null,
+            "age": "21",
+            "job": null,
+            "nation": null,
+            "native_place": null,
+            "address": null,
+            "main_illness": "抑郁症"
+        },
+        "guardian": {
+            "url": "http:\/\/127.0.0.1:8000\/guardians\/7548\/",
+            "cares": [],
+            "name": "hys",
+            "password": "41234",
+            "phone_number": "412415",
+            "guardian_id": "7548"
+        },
+        "illness_now": "",
+        "illness_past": "",
+        "sub_visit_time": null,
+        "treatment": null,
+        "medicine": null,
+        "treat_time": "2019-07-08"
+    }
+]</code></pre>
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="57419" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>监护人注册</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>172.20.10.4:8000/guardians/guardian_register/</code>
+	            		<h4>请求方式</h4>
+	            		<code>POST</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>name</th>
+			                  			<td>huyusong </td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>password</th>
+			                  			<td>34345</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>phone_number</th>
+			                  			<td>34235234</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>guardian_id</th>
+			                  			<td>2016302680</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            		
+	            		<!-- 开始 response_header -->
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="57402" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>监护人登录</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>http://127.0.0.1:8000/guardians/guardian_login/</code>
+	            		<h4>请求方式</h4>
+	            		<code>POST</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>phone_number</th>
+			                  			<td>21</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>password</th>
+			                  			<td>214345</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            		
+	            		<!-- 开始 response_header -->
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            			            		<h4>成功响应示例</h4>
+	            		<pre><code>{
+    "id": 9,
+    "doctor": {
+        "url": "http:\/\/127.0.0.1:8000\/doctors\/67474\/",
+        "patients": [
+            "http:\/\/127.0.0.1:8000\/patients\/7474563\/",
+            "http:\/\/127.0.0.1:8000\/patients\/5646758\/",
+            "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+            "http:\/\/127.0.0.1:8000\/patients\/5646758\/",
+            "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+            "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+            "http:\/\/127.0.0.1:8000\/patients\/220302\/",
+            "http:\/\/127.0.0.1:8000\/patients\/420704199712091637\/",
+            "http:\/\/127.0.0.1:8000\/patients\/420705199712097282\/",
+            "http:\/\/127.0.0.1:8000\/patients\/457487\/"
+        ],
+        "name": "vfd",
+        "doctor_id": "67474",
+        "phone_number": "634622223",
+        "working_unit": "武汉大学",
+        "working_num": "63467367",
+        "working_title": "医生",
+        "resume": "grsnrh",
+        "password": "6346"
+    },
+    "patient": {
+        "patient_id": "457487",
+        "name": "ghhg",
+        "password": "74734",
+        "phone_number": "457699783",
+        "longitude": null,
+        "latitude": null,
+        "heart_rate": null,
+        "blood_pressure": null,
+        "step_number": null,
+        "gender": null,
+        "marriage": null,
+        "age": "33",
+        "job": null,
+        "nation": null,
+        "native_place": null,
+        "address": null,
+        "main_illness": "抑郁症"
+    },
+    "guardian": {
+        "url": "http:\/\/127.0.0.1:8000\/guardians\/4213\/",
+        "cares": [],
+        "name": "ws",
+        "password": "214345",
+        "phone_number": "21",
+        "guardian_id": "4213"
+    },
+    "illness_now": "焦虑症",
+    "illness_past": "抑郁症",
+    "sub_visit_time": "2019-06-27",
+    "treatment": "一天一次",
+    "medicine": "胶囊",
+    "treat_time": "2019-07-30"
+}</code></pre>
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="57349" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>医生注册</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>172.20.10.4:8000/doctors/doctor_register/</code>
+	            		<h4>请求方式</h4>
+	            		<code>POST</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>name</th>
+			                  			<td>zhangzhizheng</td>
+			                  			<td>医生姓名</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>password</th>
+			                  			<td>738917489</td>
+			                  			<td>医生密码</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>doctor_id</th>
+			                  			<td>2016302580092</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>phone_number</th>
+			                  			<td>15104349999</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>working_unit</th>
+			                  			<td>wuhan</td>
+			                  			<td>工作单位</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>working_num</th>
+			                  			<td>2039389</td>
+			                  			<td>工号</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>working_title</th>
+			                  			<td>yisheng</td>
+			                  			<td>职称</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>resume</th>
+			                  			<td>xixixixi</td>
+			                  			<td>简介</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            		
+	            		<!-- 开始 response_header -->
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="57209" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>医生登录</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>http://127.0.0.1:8000/doctors/doctor_login/</code>
+	            		<h4>请求方式</h4>
+	            		<code>POST</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>phone_number</th>
+			                  			<td>899</td>
+			                  			<td>医生手机号</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>password</th>
+			                  			<td>737</td>
+			                  			<td>医生密码</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            		
+	            		<!-- 开始 response_header -->
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            			            		<h4>成功响应示例</h4>
+	            		<pre><code>{
+    "url": "http:\/\/127.0.0.1:8000\/doctors\/633736\/",
+    "patients": [
+        "http:\/\/127.0.0.1:8000\/patients\/74574\/",
+        "http:\/\/127.0.0.1:8000\/patients\/74574\/"
+    ],
+    "name": "ndv",
+    "doctor_id": "633736",
+    "phone_number": "899",
+    "working_unit": "wuhanuniversity",
+    "working_num": "63476373",
+    "working_title": "医生",
+    "resume": "gqahsh哈哈哈哈哈哈",
+    "password": "737"
+}</code></pre>
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="44060" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>取消预约</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>http://127.0.0.1:8000/appointments/cancel_appoint/?id=13</code>
+	            		<h4>请求方式</h4>
+	            		<code>GET</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            			            		<div class="document-block-div request_all_header-div">
+		            		<h4>请求原始Header</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>Accept</th>
+			                  			<td>*/*</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Accept-Encoding</th>
+			                  			<td>gzip, deflate, br</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Accept-Language</th>
+			                  			<td>zh-CN</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Cookie</th>
+			                  			<td>apipost=https://www.apipost.cn/</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>User-Agent</th>
+			                  			<td>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) ApiPost/2.4.106 Chrome/69.0.3497.106 Electron/4.0.0 Safari/537.36</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Origin</th>
+			                  			<td>https://www.apipost.cn</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            			            		<div class="document-block-div request_query-div">
+		            		<h4>请求Query参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>id</th>
+			                  			<td>13</td>
+			                  			<td>预约表的主键id</td>
+			                  		</tr>
+			                  				              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_header -->
+	            			            		<div class="document-block-div response_header-div">
+		            		<h4>响应头</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>date</th>
+			                  			<td> Mon, 01 Jul 2019 07:34:55 GMT</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>vary</th>
+			                  			<td> Accept, Cookie</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>server</th>
+			                  			<td> WSGIServer/0.2 CPython/3.7.3</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>x-frame-options</th>
+			                  			<td> SAMEORIGIN</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>content-length</th>
+			                  			<td> 0</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>allow</th>
+			                  			<td> GET, HEAD, OPTIONS</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="44053" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>查看预约</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>http://127.0.0.1:8000/appointments/guardian_get_appoint/?guardian_id=6478</code>
+	            		<h4>请求方式</h4>
+	            		<code>GET</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            			            		<div class="document-block-div request_all_header-div">
+		            		<h4>请求原始Header</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>Accept</th>
+			                  			<td>*/*</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Accept-Encoding</th>
+			                  			<td>gzip, deflate, br</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Accept-Language</th>
+			                  			<td>zh-CN</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Cookie</th>
+			                  			<td>apipost=https://www.apipost.cn/</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>User-Agent</th>
+			                  			<td>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) ApiPost/2.4.106 Chrome/69.0.3497.106 Electron/4.0.0 Safari/537.36</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Origin</th>
+			                  			<td>https://www.apipost.cn</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            			            		<div class="document-block-div request_query-div">
+		            		<h4>请求Query参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>guardian_id</th>
+			                  			<td>6478</td>
+			                  			<td>监护人身份证号</td>
+			                  		</tr>
+			                  				              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_header -->
+	            			            		<div class="document-block-div response_header-div">
+		            		<h4>响应头</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>date</th>
+			                  			<td> Mon, 01 Jul 2019 07:33:05 GMT</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>allow</th>
+			                  			<td> GET, HEAD, OPTIONS</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>server</th>
+			                  			<td> WSGIServer/0.2 CPython/3.7.3</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>x-frame-options</th>
+			                  			<td> SAMEORIGIN</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>content-length</th>
+			                  			<td> 1060</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>vary</th>
+			                  			<td> Accept, Cookie</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>content-type</th>
+			                  			<td> application/json</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            			            		<h4>成功响应示例</h4>
+	            		<pre><code>{
+    "id": 13,
+    "patient": {
+        "patient_id": "457487",
+        "name": "yfucyj",
+        "password": "74734",
+        "phone_number": "45769978",
+        "longitude": null,
+        "latitude": null,
+        "heart_rate": null,
+        "blood_pressure": null,
+        "step_number": null,
+        "gender": null,
+        "marriage": null,
+        "age": "42",
+        "job": null,
+        "nation": null,
+        "native_place": null,
+        "address": null,
+        "main_illness": null
+    },
+    "guardian": {
+        "url": "http:\/\/127.0.0.1:8000\/guardians\/6478\/",
+        "cares": [],
+        "name": "zzz",
+        "password": "5346",
+        "phone_number": "742765",
+        "guardian_id": "6478"
+    },
+    "doctor": {
+        "url": "http:\/\/127.0.0.1:8000\/doctors\/67474\/",
+        "patients": [
+            "http:\/\/127.0.0.1:8000\/patients\/7474563\/",
+            "http:\/\/127.0.0.1:8000\/patients\/5646758\/",
+            "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+            "http:\/\/127.0.0.1:8000\/patients\/5646758\/",
+            "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+            "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+            "http:\/\/127.0.0.1:8000\/patients\/220302\/"
+        ],
+        "name": "vfd",
+        "doctor_id": "67474",
+        "phone_number": "634622223",
+        "working_unit": "武汉大学",
+        "working_num": "63467367",
+        "working_title": "医生",
+        "resume": "grsnrh",
+        "password": "6346"
+    },
+    "appointment_time": "2019-07-15",
+    "appointment_state": "appoint"
+}</code></pre>
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="44052" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>预约就诊</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>http://127.0.0.1:8000/appointments/guardian_appoint/</code>
+	            		<h4>请求方式</h4>
+	            		<code>POST</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            			            		<div class="document-block-div request_all_header-div">
+		            		<h4>请求原始Header</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>Accept</th>
+			                  			<td>*/*</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Accept-Encoding</th>
+			                  			<td>gzip, deflate, br</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Accept-Language</th>
+			                  			<td>zh-CN</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Content-Type</th>
+			                  			<td>multipart/form-data; boundary=----WebKitFormBoundarycjSSLOaL6MsA4ZBf</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Cookie</th>
+			                  			<td>apipost=https://www.apipost.cn/</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Origin</th>
+			                  			<td>https://www.apipost.cn</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>User-Agent</th>
+			                  			<td>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) ApiPost/2.4.106 Chrome/69.0.3497.106 Electron/4.0.0 Safari/537.36</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>appointment_time</th>
+			                  			<td>2019-07-15</td>
+			                  			<td>预约时间</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>appointment_state</th>
+			                  			<td>appoint</td>
+			                  			<td>预约状态</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>doctor_id</th>
+			                  			<td>67474</td>
+			                  			<td>医生身份证号</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>patient_id</th>
+			                  			<td>457487</td>
+			                  			<td>病人身份证号</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>guardian_id</th>
+			                  			<td>6478</td>
+			                  			<td>监护人身份证号</td>
+			                  		</tr>
+			                  				              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            		
+	            		<!-- 开始 response_header -->
+	            			            		<div class="document-block-div response_header-div">
+		            		<h4>响应头</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>date</th>
+			                  			<td> Mon, 01 Jul 2019 07:32:35 GMT</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>vary</th>
+			                  			<td> Accept, Cookie</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>server</th>
+			                  			<td> WSGIServer/0.2 CPython/3.7.3</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>x-frame-options</th>
+			                  			<td> SAMEORIGIN</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>content-length</th>
+			                  			<td> 0</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>allow</th>
+			                  			<td> POST, OPTIONS</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="44045" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>查看医嘱</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>127.0.0.1:8000/treatships/get_one_treatment_info/?patient_id=74574</code>
+	            		<h4>请求方式</h4>
+	            		<code>GET</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            			            		<div class="document-block-div request_all_header-div">
+		            		<h4>请求原始Header</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>Accept</th>
+			                  			<td>*/*</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Accept-Encoding</th>
+			                  			<td>gzip, deflate, br</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Accept-Language</th>
+			                  			<td>zh-CN</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Cookie</th>
+			                  			<td>apipost=https://www.apipost.cn/</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>User-Agent</th>
+			                  			<td>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) ApiPost/2.4.106 Chrome/69.0.3497.106 Electron/4.0.0 Safari/537.36</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Origin</th>
+			                  			<td>https://www.apipost.cn</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            			            		<div class="document-block-div request_query-div">
+		            		<h4>请求Query参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>patient_id</th>
+			                  			<td>74574</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_header -->
+	            			            		<div class="document-block-div response_header-div">
+		            		<h4>响应头</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>date</th>
+			                  			<td> Mon, 01 Jul 2019 07:28:22 GMT</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>allow</th>
+			                  			<td> GET, HEAD, OPTIONS</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>server</th>
+			                  			<td> WSGIServer/0.2 CPython/3.7.3</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>x-frame-options</th>
+			                  			<td> SAMEORIGIN</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>content-length</th>
+			                  			<td> 179</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>vary</th>
+			                  			<td> Accept, Cookie</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>content-type</th>
+			                  			<td> application/json</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            			            		<h4>成功响应示例</h4>
+	            		<pre><code>{
+    "id": 11,
+    "illness_now": "",
+    "illness_past": "",
+    "sub_visit_time": null,
+    "treatment": null,
+    "medicine": null,
+    "treat_time": "2019-07-08",
+    "patient": "74574",
+    "doctor": "633736",
+    "guardian": "7548"
+}</code></pre>
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="43922" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>修改病人基本信息</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>http://127.0.0.1:8000/patients/7474563/change_patient/</code>
+	            		<h4>请求方式</h4>
+	            		<code>POST</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>patient_id</th>
+			                  			<td>7474563</td>
+			                  			<td>病人身份证号</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>name</th>
+			                  			<td>hrsy</td>
+			                  			<td>病人姓名</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>phone_number</th>
+			                  			<td>4238429</td>
+			                  			<td>病人手机号</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>age</th>
+			                  			<td>99</td>
+			                  			<td>年龄（可选）</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            		
+	            		<!-- 开始 response_header -->
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			            		<h4>失败响应示例</h4>
+	            		<pre><code>{
+    "error": "手机号已存在"
+}</code></pre>
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="43913" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>添加新的病情信息</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>http://127.0.0.1:8000/treatships/add_treat_info/</code>
+	            		<h4>请求方式</h4>
+	            		<code>POST</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>doctor_id</th>
+			                  			<td>633736</td>
+			                  			<td>医生身份证号</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>patient_id</th>
+			                  			<td>74574</td>
+			                  			<td>病人身份证号</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>guardian_id</th>
+			                  			<td>7548</td>
+			                  			<td>监护人身份证号</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>illness_now</th>
+			                  			<td>焦虑症</td>
+			                  			<td>现今病情</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>illness_past</th>
+			                  			<td>抑郁症</td>
+			                  			<td>以往病史</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>sub_visit_time</th>
+			                  			<td>2019-08-20</td>
+			                  			<td>复诊时间</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>treat_time</th>
+			                  			<td>2019-07-04</td>
+			                  			<td>治疗时间（此次）</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>medicine</th>
+			                  			<td>打针</td>
+			                  			<td>开药及用法用量</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>treatment</th>
+			                  			<td>观察治疗</td>
+			                  			<td>治疗方案</td>
+			                  		</tr>
+			                  				              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            		
+	            		<!-- 开始 response_header -->
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            			            		<h4>成功响应示例</h4>
+	            		<pre><code>{
+    "status": "添加病情信息成功"
+}</code></pre>
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="43998" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>查看预约详情</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>http://127.0.0.1:8000/appointments/appointment_info_detail/?doctor_id=633736&patient_id=23784738297&guardian_id=4235&appointment_time=2019-06-28</code>
+	            		<h4>请求方式</h4>
+	            		<code>GET</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            			            		<div class="document-block-div request_all_header-div">
+		            		<h4>请求原始Header</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>Accept</th>
+			                  			<td>*/*</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Accept-Encoding</th>
+			                  			<td>gzip, deflate, br</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Accept-Language</th>
+			                  			<td>zh-CN</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Cookie</th>
+			                  			<td>apipost=https://www.apipost.cn/</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>User-Agent</th>
+			                  			<td>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) ApiPost/2.4.106 Chrome/69.0.3497.106 Electron/4.0.0 Safari/537.36</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Origin</th>
+			                  			<td>https://www.apipost.cn</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            			            		<div class="document-block-div request_query-div">
+		            		<h4>请求Query参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>doctor_id</th>
+			                  			<td>633736</td>
+			                  			<td>医生身份证号</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>patient_id</th>
+			                  			<td>23784738297</td>
+			                  			<td>病人身份证号</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>guardian_id</th>
+			                  			<td>4235</td>
+			                  			<td>监护人身份证号</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>appointment_time</th>
+			                  			<td>2019-06-28</td>
+			                  			<td>预约时间</td>
+			                  		</tr>
+			                  				              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_header -->
+	            			            		<div class="document-block-div response_header-div">
+		            		<h4>响应头</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>date</th>
+			                  			<td> Mon, 01 Jul 2019 07:07:39 GMT</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>allow</th>
+			                  			<td> GET, HEAD, OPTIONS</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>server</th>
+			                  			<td> WSGIServer/0.2 CPython/3.7.3</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>x-frame-options</th>
+			                  			<td> SAMEORIGIN</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>content-length</th>
+			                  			<td> 870</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>vary</th>
+			                  			<td> Accept, Cookie</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>content-type</th>
+			                  			<td> application/json</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            			            		<h4>成功响应示例</h4>
+	            		<pre><code>{
+    "id": 11,
+    "patient": {
+        "patient_id": "23784738297",
+        "name": "rr",
+        "password": "2367428",
+        "phone_number": "2384789329",
+        "longitude": null,
+        "latitude": null,
+        "heart_rate": null,
+        "blood_pressure": null,
+        "step_number": null,
+        "gender": null,
+        "marriage": null,
+        "age": "23",
+        "job": null,
+        "nation": null,
+        "native_place": null,
+        "address": null,
+        "main_illness": null
+    },
+    "guardian": {
+        "url": "http:\/\/127.0.0.1:8000\/guardians\/4235\/",
+        "cares": [],
+        "name": "sq",
+        "password": "452352",
+        "phone_number": "5235",
+        "guardian_id": "4235"
+    },
+    "doctor": {
+        "url": "http:\/\/127.0.0.1:8000\/doctors\/633736\/",
+        "patients": [
+            "http:\/\/127.0.0.1:8000\/patients\/74574\/",
+            "http:\/\/127.0.0.1:8000\/patients\/74574\/"
+        ],
+        "name": "ndv",
+        "doctor_id": "633736",
+        "phone_number": "899",
+        "working_unit": "wuhanuniversity",
+        "working_num": "63476373",
+        "working_title": "医生",
+        "resume": "gqahsh哈哈哈哈哈哈",
+        "password": "737"
+    },
+    "appointment_time": "2019-06-28",
+    "appointment_state": "appoint"
+}</code></pre>
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="44002" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>处理预约（完成）</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>http://127.0.0.1:8000/appointments/change_appointment_state/</code>
+	            		<h4>请求方式</h4>
+	            		<code>POST</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            			            		<div class="document-block-div request_all_header-div">
+		            		<h4>请求原始Header</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>Accept</th>
+			                  			<td>*/*</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Accept-Encoding</th>
+			                  			<td>gzip, deflate, br</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Accept-Language</th>
+			                  			<td>zh-CN</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Content-Type</th>
+			                  			<td>multipart/form-data; boundary=----WebKitFormBoundary7Er9Mm7XVBaO14jk</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Cookie</th>
+			                  			<td>apipost=https://www.apipost.cn/</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Origin</th>
+			                  			<td>https://www.apipost.cn</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>User-Agent</th>
+			                  			<td>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) ApiPost/2.4.106 Chrome/69.0.3497.106 Electron/4.0.0 Safari/537.36</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>id</th>
+			                  			<td>11</td>
+			                  			<td>预约表的主键id</td>
+			                  		</tr>
+			                  				              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            		
+	            		<!-- 开始 response_header -->
+	            			            		<div class="document-block-div response_header-div">
+		            		<h4>响应头</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>date</th>
+			                  			<td> Mon, 01 Jul 2019 07:12:58 GMT</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>vary</th>
+			                  			<td> Accept, Cookie</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>server</th>
+			                  			<td> WSGIServer/0.2 CPython/3.7.3</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>x-frame-options</th>
+			                  			<td> SAMEORIGIN</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>content-length</th>
+			                  			<td> 0</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>allow</th>
+			                  			<td> POST, OPTIONS</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="43944" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>就诊记录-一周内</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>http://127.0.0.1:8000/appointments/appointment_info_list/?doctor_id=633736</code>
+	            		<h4>请求方式</h4>
+	            		<code>GET</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            			            		<div class="document-block-div request_all_header-div">
+		            		<h4>请求原始Header</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>Accept</th>
+			                  			<td>*/*</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Accept-Encoding</th>
+			                  			<td>gzip, deflate, br</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Accept-Language</th>
+			                  			<td>zh-CN</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Cookie</th>
+			                  			<td>apipost=https://www.apipost.cn/</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>User-Agent</th>
+			                  			<td>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) ApiPost/2.4.106 Chrome/69.0.3497.106 Electron/4.0.0 Safari/537.36</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Origin</th>
+			                  			<td>https://www.apipost.cn</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            			            		<div class="document-block-div request_query-div">
+		            		<h4>请求Query参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>doctor_id</th>
+			                  			<td>633736</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_header -->
+	            			            		<div class="document-block-div response_header-div">
+		            		<h4>响应头</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>date</th>
+			                  			<td> Mon, 01 Jul 2019 06:39:39 GMT</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>allow</th>
+			                  			<td> GET, HEAD, OPTIONS</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>server</th>
+			                  			<td> WSGIServer/0.2 CPython/3.7.3</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>x-frame-options</th>
+			                  			<td> SAMEORIGIN</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>content-length</th>
+			                  			<td> 3485</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>vary</th>
+			                  			<td> Accept, Cookie</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>content-type</th>
+			                  			<td> application/json</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            			            		<h4>成功响应示例</h4>
+	            		<pre><code>[
+    {
+        "id": 11,
+        "patient": {
+            "patient_id": "23784738297",
+            "name": "rr",
+            "password": "2367428",
+            "phone_number": "2384789329",
+            "longitude": null,
+            "latitude": null,
+            "heart_rate": null,
+            "blood_pressure": null,
+            "step_number": null,
+            "gender": null,
+            "marriage": null,
+            "age": "23",
+            "job": null,
+            "nation": null,
+            "native_place": null,
+            "address": null,
+            "main_illness": null
+        },
+        "guardian": {
+            "url": "http:\/\/127.0.0.1:8000\/guardians\/4235\/",
+            "cares": [],
+            "name": "sq",
+            "password": "452352",
+            "phone_number": "5235",
+            "guardian_id": "4235"
+        },
+        "doctor": {
+            "url": "http:\/\/127.0.0.1:8000\/doctors\/633736\/",
+            "patients": [
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/",
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/"
+            ],
+            "name": "ndv",
+            "doctor_id": "633736",
+            "phone_number": "899",
+            "working_unit": "wuhanuniversity",
+            "working_num": "63476373",
+            "working_title": "医生",
+            "resume": "gqahsh哈哈哈哈哈哈",
+            "password": "737"
+        },
+        "appointment_time": "2019-06-28",
+        "appointment_state": "appoint"
+    },
+    {
+        "id": 12,
+        "patient": {
+            "patient_id": "23784738297",
+            "name": "rr",
+            "password": "2367428",
+            "phone_number": "2384789329",
+            "longitude": null,
+            "latitude": null,
+            "heart_rate": null,
+            "blood_pressure": null,
+            "step_number": null,
+            "gender": null,
+            "marriage": null,
+            "age": "23",
+            "job": null,
+            "nation": null,
+            "native_place": null,
+            "address": null,
+            "main_illness": null
+        },
+        "guardian": {
+            "url": "http:\/\/127.0.0.1:8000\/guardians\/4235\/",
+            "cares": [],
+            "name": "sq",
+            "password": "452352",
+            "phone_number": "5235",
+            "guardian_id": "4235"
+        },
+        "doctor": {
+            "url": "http:\/\/127.0.0.1:8000\/doctors\/633736\/",
+            "patients": [
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/",
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/"
+            ],
+            "name": "ndv",
+            "doctor_id": "633736",
+            "phone_number": "899",
+            "working_unit": "wuhanuniversity",
+            "working_num": "63476373",
+            "working_title": "医生",
+            "resume": "gqahsh哈哈哈哈哈哈",
+            "password": "737"
+        },
+        "appointment_time": "2019-06-27",
+        "appointment_state": "completed"
+    },
+    {
+        "id": 1,
+        "patient": {
+            "patient_id": "23784738297",
+            "name": "rr",
+            "password": "2367428",
+            "phone_number": "2384789329",
+            "longitude": null,
+            "latitude": null,
+            "heart_rate": null,
+            "blood_pressure": null,
+            "step_number": null,
+            "gender": null,
+            "marriage": null,
+            "age": "23",
+            "job": null,
+            "nation": null,
+            "native_place": null,
+            "address": null,
+            "main_illness": null
+        },
+        "guardian": {
+            "url": "http:\/\/127.0.0.1:8000\/guardians\/4235\/",
+            "cares": [],
+            "name": "sq",
+            "password": "452352",
+            "phone_number": "5235",
+            "guardian_id": "4235"
+        },
+        "doctor": {
+            "url": "http:\/\/127.0.0.1:8000\/doctors\/633736\/",
+            "patients": [
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/",
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/"
+            ],
+            "name": "ndv",
+            "doctor_id": "633736",
+            "phone_number": "899",
+            "working_unit": "wuhanuniversity",
+            "working_num": "63476373",
+            "working_title": "医生",
+            "resume": "gqahsh哈哈哈哈哈哈",
+            "password": "737"
+        },
+        "appointment_time": "2019-06-26",
+        "appointment_state": "appoint"
+    },
+    {
+        "id": 5,
+        "patient": {
+            "patient_id": "23784738297",
+            "name": "rr",
+            "password": "2367428",
+            "phone_number": "2384789329",
+            "longitude": null,
+            "latitude": null,
+            "heart_rate": null,
+            "blood_pressure": null,
+            "step_number": null,
+            "gender": null,
+            "marriage": null,
+            "age": "23",
+            "job": null,
+            "nation": null,
+            "native_place": null,
+            "address": null,
+            "main_illness": null
+        },
+        "guardian": {
+            "url": "http:\/\/127.0.0.1:8000\/guardians\/4235\/",
+            "cares": [],
+            "name": "sq",
+            "password": "452352",
+            "phone_number": "5235",
+            "guardian_id": "4235"
+        },
+        "doctor": {
+            "url": "http:\/\/127.0.0.1:8000\/doctors\/633736\/",
+            "patients": [
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/",
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/"
+            ],
+            "name": "ndv",
+            "doctor_id": "633736",
+            "phone_number": "899",
+            "working_unit": "wuhanuniversity",
+            "working_num": "63476373",
+            "working_title": "医生",
+            "resume": "gqahsh哈哈哈哈哈哈",
+            "password": "737"
+        },
+        "appointment_time": "2019-06-26",
+        "appointment_state": "appoint"
+    }
+]</code></pre>
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="43951" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>就诊记录-只有预约</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>127.0.0.1:8000/appointments/appointment_only_list/?doctor_id=633736</code>
+	            		<h4>请求方式</h4>
+	            		<code>GET</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            			            		<div class="document-block-div request_all_header-div">
+		            		<h4>请求原始Header</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>Accept</th>
+			                  			<td>*/*</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Accept-Encoding</th>
+			                  			<td>gzip, deflate, br</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Accept-Language</th>
+			                  			<td>zh-CN</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Cookie</th>
+			                  			<td>apipost=https://www.apipost.cn/</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>User-Agent</th>
+			                  			<td>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) ApiPost/2.4.106 Chrome/69.0.3497.106 Electron/4.0.0 Safari/537.36</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>Origin</th>
+			                  			<td>https://www.apipost.cn</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 request_header -->
+	            			            		<div class="document-block-div request_header-div">
+		            		<h4>请求自定义Header</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>User-Agent</th>
+			                  			<td>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36</td>
+			                  			<td>模拟Pc</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            			            		<div class="document-block-div request_query-div">
+		            		<h4>请求Query参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>doctor_id</th>
+			                  			<td>633736</td>
+			                  			<td>医生身份证号</td>
+			                  		</tr>
+			                  				              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_header -->
+	            			            		<div class="document-block-div response_header-div">
+		            		<h4>响应头</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>date</th>
+			                  			<td> Mon, 01 Jul 2019 06:42:11 GMT</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>allow</th>
+			                  			<td> GET, HEAD, OPTIONS</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>server</th>
+			                  			<td> WSGIServer/0.2 CPython/3.7.3</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>x-frame-options</th>
+			                  			<td> SAMEORIGIN</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>content-length</th>
+			                  			<td> 2612</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>vary</th>
+			                  			<td> Accept, Cookie</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>content-type</th>
+			                  			<td> application/json</td>
+			                  			<td>无描述</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            			            		<h4>成功响应示例</h4>
+	            		<pre><code>[
+    {
+        "id": 11,
+        "patient": {
+            "patient_id": "23784738297",
+            "name": "rr",
+            "password": "2367428",
+            "phone_number": "2384789329",
+            "longitude": null,
+            "latitude": null,
+            "heart_rate": null,
+            "blood_pressure": null,
+            "step_number": null,
+            "gender": null,
+            "marriage": null,
+            "age": "23",
+            "job": null,
+            "nation": null,
+            "native_place": null,
+            "address": null,
+            "main_illness": null
+        },
+        "guardian": {
+            "url": "http:\/\/127.0.0.1:8000\/guardians\/4235\/",
+            "cares": [],
+            "name": "sq",
+            "password": "452352",
+            "phone_number": "5235",
+            "guardian_id": "4235"
+        },
+        "doctor": {
+            "url": "http:\/\/127.0.0.1:8000\/doctors\/633736\/",
+            "patients": [
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/",
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/"
+            ],
+            "name": "ndv",
+            "doctor_id": "633736",
+            "phone_number": "899",
+            "working_unit": "wuhanuniversity",
+            "working_num": "63476373",
+            "working_title": "医生",
+            "resume": "gqahsh哈哈哈哈哈哈",
+            "password": "737"
+        },
+        "appointment_time": "2019-06-28",
+        "appointment_state": "appoint"
+    },
+    {
+        "id": 1,
+        "patient": {
+            "patient_id": "23784738297",
+            "name": "rr",
+            "password": "2367428",
+            "phone_number": "2384789329",
+            "longitude": null,
+            "latitude": null,
+            "heart_rate": null,
+            "blood_pressure": null,
+            "step_number": null,
+            "gender": null,
+            "marriage": null,
+            "age": "23",
+            "job": null,
+            "nation": null,
+            "native_place": null,
+            "address": null,
+            "main_illness": null
+        },
+        "guardian": {
+            "url": "http:\/\/127.0.0.1:8000\/guardians\/4235\/",
+            "cares": [],
+            "name": "sq",
+            "password": "452352",
+            "phone_number": "5235",
+            "guardian_id": "4235"
+        },
+        "doctor": {
+            "url": "http:\/\/127.0.0.1:8000\/doctors\/633736\/",
+            "patients": [
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/",
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/"
+            ],
+            "name": "ndv",
+            "doctor_id": "633736",
+            "phone_number": "899",
+            "working_unit": "wuhanuniversity",
+            "working_num": "63476373",
+            "working_title": "医生",
+            "resume": "gqahsh哈哈哈哈哈哈",
+            "password": "737"
+        },
+        "appointment_time": "2019-06-26",
+        "appointment_state": "appoint"
+    },
+    {
+        "id": 5,
+        "patient": {
+            "patient_id": "23784738297",
+            "name": "rr",
+            "password": "2367428",
+            "phone_number": "2384789329",
+            "longitude": null,
+            "latitude": null,
+            "heart_rate": null,
+            "blood_pressure": null,
+            "step_number": null,
+            "gender": null,
+            "marriage": null,
+            "age": "23",
+            "job": null,
+            "nation": null,
+            "native_place": null,
+            "address": null,
+            "main_illness": null
+        },
+        "guardian": {
+            "url": "http:\/\/127.0.0.1:8000\/guardians\/4235\/",
+            "cares": [],
+            "name": "sq",
+            "password": "452352",
+            "phone_number": "5235",
+            "guardian_id": "4235"
+        },
+        "doctor": {
+            "url": "http:\/\/127.0.0.1:8000\/doctors\/633736\/",
+            "patients": [
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/",
+                "http:\/\/127.0.0.1:8000\/patients\/74574\/"
+            ],
+            "name": "ndv",
+            "doctor_id": "633736",
+            "phone_number": "899",
+            "working_unit": "wuhanuniversity",
+            "working_num": "63476373",
+            "working_title": "医生",
+            "resume": "gqahsh哈哈哈哈哈哈",
+            "password": "737"
+        },
+        "appointment_time": "2019-06-26",
+        "appointment_state": "appoint"
+    }
+]</code></pre>
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="43909" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>查看病人基本信息和联系人信息</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>127.0.0.1:8000/treatships/get_patient_basic_info/?patient_id=457487&doctor_id=67474</code>
+	            		<h4>请求方式</h4>
+	            		<code>GET</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            			            		<div class="document-block-div request_query-div">
+		            		<h4>请求Query参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>patient_id</th>
+			                  			<td>457487</td>
+			                  			<td>病人身份证号</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>doctor_id</th>
+			                  			<td>67474</td>
+			                  			<td>医生身份证号</td>
+			                  		</tr>
+			                  				              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_header -->
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            			            		<h4>成功响应示例</h4>
+	            		<pre><code>{
+    "id": 9,
+    "doctor": {
+        "url": "http:\/\/127.0.0.1:8000\/doctors\/67474\/",
+        "patients": [
+            "http:\/\/127.0.0.1:8000\/patients\/7474563\/",
+            "http:\/\/127.0.0.1:8000\/patients\/5646758\/",
+            "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+            "http:\/\/127.0.0.1:8000\/patients\/5646758\/",
+            "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+            "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+            "http:\/\/127.0.0.1:8000\/patients\/220302\/"
+        ],
+        "name": "vfd",
+        "doctor_id": "67474",
+        "phone_number": "634622223",
+        "working_unit": "武汉大学",
+        "working_num": "63467367",
+        "working_title": "医生",
+        "resume": "grsnrh",
+        "password": "6346"
+    },
+    "patient": {
+        "patient_id": "457487",
+        "name": "yfucyj",
+        "password": "74734",
+        "phone_number": "45769978",
+        "longitude": null,
+        "latitude": null,
+        "heart_rate": null,
+        "blood_pressure": null,
+        "step_number": null,
+        "gender": null,
+        "marriage": null,
+        "age": "42",
+        "job": null,
+        "nation": null,
+        "native_place": null,
+        "address": null,
+        "main_illness": null
+    },
+    "guardian": {
+        "url": "http:\/\/127.0.0.1:8000\/guardians\/6478\/",
+        "cares": [],
+        "name": "zzz",
+        "password": "5346",
+        "phone_number": "742765",
+        "guardian_id": "6478"
+    },
+    "illness_now": "焦虑症",
+    "illness_past": "抑郁症",
+    "sub_visit_time": "2019-06-27",
+    "treatment": "一天一次",
+    "medicine": "胶囊",
+    "treat_time": "2019-07-30"
+}</code></pre>
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="43905" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>查看病人病情信息</h1>
+	            			            		<div>
+	            			医生查看病人信息，展示多条，并按时间顺序由最近到最远顺序排列。	            		</div>
+	            			            		<h4>接口URL</h4>
+	            		<code>http://127.0.0.1:8000/treatships/get_many_treatment_info/?patient_id=457487</code>
+	            		<h4>请求方式</h4>
+	            		<code>GET</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            			            		<div class="document-block-div request_query-div">
+		            		<h4>请求Query参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>patient_id</th>
+			                  			<td>457487</td>
+			                  			<td>病人身份证号</td>
+			                  		</tr>
+			                  				              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_header -->
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            			            		<h4>成功响应示例</h4>
+	            		<pre><code>[
+    {
+        "id": 9,
+        "doctor": {
+            "url": "http:\/\/127.0.0.1:8000\/doctors\/67474\/",
+            "patients": [
+                "http:\/\/127.0.0.1:8000\/patients\/7474563\/",
+                "http:\/\/127.0.0.1:8000\/patients\/5646758\/",
+                "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+                "http:\/\/127.0.0.1:8000\/patients\/5646758\/",
+                "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+                "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+                "http:\/\/127.0.0.1:8000\/patients\/220302\/"
+            ],
+            "name": "vfd",
+            "doctor_id": "67474",
+            "phone_number": "634622223",
+            "working_unit": "武汉大学",
+            "working_num": "63467367",
+            "working_title": "医生",
+            "resume": "grsnrh",
+            "password": "6346"
+        },
+        "patient": {
+            "patient_id": "457487",
+            "name": "yfucyj",
+            "password": "74734",
+            "phone_number": "45769978",
+            "longitude": null,
+            "latitude": null,
+            "heart_rate": null,
+            "blood_pressure": null,
+            "step_number": null,
+            "gender": null,
+            "marriage": null,
+            "age": "42",
+            "job": null,
+            "nation": null,
+            "native_place": null,
+            "address": null,
+            "main_illness": null
+        },
+        "guardian": {
+            "url": "http:\/\/127.0.0.1:8000\/guardians\/6478\/",
+            "cares": [],
+            "name": "zzz",
+            "password": "5346",
+            "phone_number": "742765",
+            "guardian_id": "6478"
+        },
+        "illness_now": "焦虑症",
+        "illness_past": "抑郁症",
+        "sub_visit_time": "2019-06-27",
+        "treatment": "一天一次",
+        "medicine": "胶囊",
+        "treat_time": "2019-07-30"
+    },
+    {
+        "id": 8,
+        "doctor": {
+            "url": "http:\/\/127.0.0.1:8000\/doctors\/67474\/",
+            "patients": [
+                "http:\/\/127.0.0.1:8000\/patients\/7474563\/",
+                "http:\/\/127.0.0.1:8000\/patients\/5646758\/",
+                "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+                "http:\/\/127.0.0.1:8000\/patients\/5646758\/",
+                "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+                "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+                "http:\/\/127.0.0.1:8000\/patients\/220302\/"
+            ],
+            "name": "vfd",
+            "doctor_id": "67474",
+            "phone_number": "634622223",
+            "working_unit": "武汉大学",
+            "working_num": "63467367",
+            "working_title": "医生",
+            "resume": "grsnrh",
+            "password": "6346"
+        },
+        "patient": {
+            "patient_id": "457487",
+            "name": "yfucyj",
+            "password": "74734",
+            "phone_number": "45769978",
+            "longitude": null,
+            "latitude": null,
+            "heart_rate": null,
+            "blood_pressure": null,
+            "step_number": null,
+            "gender": null,
+            "marriage": null,
+            "age": "42",
+            "job": null,
+            "nation": null,
+            "native_place": null,
+            "address": null,
+            "main_illness": null
+        },
+        "guardian": {
+            "url": "http:\/\/127.0.0.1:8000\/guardians\/6478\/",
+            "cares": [],
+            "name": "zzz",
+            "password": "5346",
+            "phone_number": "742765",
+            "guardian_id": "6478"
+        },
+        "illness_now": "焦虑症",
+        "illness_past": "抑郁症",
+        "sub_visit_time": "2019-06-27",
+        "treatment": "一天一次",
+        "medicine": "胶囊",
+        "treat_time": "2019-06-30"
+    },
+    {
+        "id": 6,
+        "doctor": {
+            "url": "http:\/\/127.0.0.1:8000\/doctors\/67474\/",
+            "patients": [
+                "http:\/\/127.0.0.1:8000\/patients\/7474563\/",
+                "http:\/\/127.0.0.1:8000\/patients\/5646758\/",
+                "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+                "http:\/\/127.0.0.1:8000\/patients\/5646758\/",
+                "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+                "http:\/\/127.0.0.1:8000\/patients\/457487\/",
+                "http:\/\/127.0.0.1:8000\/patients\/220302\/"
+            ],
+            "name": "vfd",
+            "doctor_id": "67474",
+            "phone_number": "634622223",
+            "working_unit": "武汉大学",
+            "working_num": "63467367",
+            "working_title": "医生",
+            "resume": "grsnrh",
+            "password": "6346"
+        },
+        "patient": {
+            "patient_id": "457487",
+            "name": "yfucyj",
+            "password": "74734",
+            "phone_number": "45769978",
+            "longitude": null,
+            "latitude": null,
+            "heart_rate": null,
+            "blood_pressure": null,
+            "step_number": null,
+            "gender": null,
+            "marriage": null,
+            "age": "42",
+            "job": null,
+            "nation": null,
+            "native_place": null,
+            "address": null,
+            "main_illness": null
+        },
+        "guardian": {
+            "url": "http:\/\/127.0.0.1:8000\/guardians\/6478\/",
+            "cares": [],
+            "name": "zzz",
+            "password": "5346",
+            "phone_number": "742765",
+            "guardian_id": "6478"
+        },
+        "illness_now": "焦虑症",
+        "illness_past": "抑郁症",
+        "sub_visit_time": "2019-06-27",
+        "treatment": "一天一次",
+        "medicine": "胶囊",
+        "treat_time": "2019-06-20"
+    }
+]</code></pre>
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="43881" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>添加病人</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>http://127.0.0.1:8000/treatships/add_treatship/</code>
+	            		<h4>请求方式</h4>
+	            		<code>POST</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>doctor_id</th>
+			                  			<td>67474</td>
+			                  			<td>医生身份证号</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>patient_id</th>
+			                  			<td>220302</td>
+			                  			<td>病人身份证号</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>guardian_id</th>
+			                  			<td>6478</td>
+			                  			<td>监护人身份证号</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>name</th>
+			                  			<td>sunki</td>
+			                  			<td>名字</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>password</th>
+			                  			<td>password</td>
+			                  			<td>密码</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>phone_number</th>
+			                  			<td>1510434</td>
+			                  			<td>手机号（病人的）</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>gender</th>
+			                  			<td>female</td>
+			                  			<td>性别</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>marriage</th>
+			                  			<td>NO</td>
+			                  			<td>婚姻</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>age</th>
+			                  			<td>22</td>
+			                  			<td>年龄</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>job</th>
+			                  			<td>学生</td>
+			                  			<td>工作</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>nation</th>
+			                  			<td>汉</td>
+			                  			<td>民族</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>native_place</th>
+			                  			<td>吉林省</td>
+			                  			<td>籍贯</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>address</th>
+			                  			<td>武汉大学</td>
+			                  			<td>地址</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>main_illness</th>
+			                  			<td>抑郁症</td>
+			                  			<td>主要病情</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>illness_now</th>
+			                  			<td>抑郁症</td>
+			                  			<td>现今病情</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>illness_past</th>
+			                  			<td>无</td>
+			                  			<td>以往病史</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>sub_visit_time</th>
+			                  			<td>2019-07-31</td>
+			                  			<td>复诊时间</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>treat_time</th>
+			                  			<td>2019-06-30</td>
+			                  			<td>治疗时间（此次）</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>medicine</th>
+			                  			<td>胶囊</td>
+			                  			<td>开药及用法用量</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>treatment</th>
+			                  			<td>一日一次 一次三颗</td>
+			                  			<td>治疗方案</td>
+			                  		</tr>
+			                  				              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            		
+	            		<!-- 开始 response_header -->
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            			            		<h4>成功响应示例</h4>
+	            		<pre><code>{
+    "status": "添加病人信息成功"
+}</code></pre>
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="43873" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>获取病人列表</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>http://127.0.0.1:8000/treatships/search_patient/?patient_name=&doctor_phone=634622223</code>
+	            		<h4>请求方式</h4>
+	            		<code>GET</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            			            		<div class="document-block-div request_query-div">
+		            		<h4>请求Query参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>patient_name</th>
+			                  			<td>无示例值</td>
+			                  			<td>病人姓名</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>doctor_phone</th>
+			                  			<td>634622223</td>
+			                  			<td>医生手机号</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_header -->
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            			            		<h4>成功响应示例</h4>
+	            		<pre><code>[
+    {
+        "patient__patient_id": "457487",
+        "patient__name": "yfucyj",
+        "patient__main_illness": null,
+        "id__count": 3
+    },
+    {
+        "patient__patient_id": "5646758",
+        "patient__name": "hdrh",
+        "patient__main_illness": null,
+        "id__count": 2
+    },
+    {
+        "patient__patient_id": "7474563",
+        "patient__name": "hrsy",
+        "patient__main_illness": null,
+        "id__count": 1
+    }
+]</code></pre>
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		    	<div class="page-wrapper hide" tabindex="43898" role="main">
+	        	<div class="page-inner">
+	          		<section class="markdown-section">
+	            		<h1><i class="fa fa-link" aria-hidden="true"></i>搜索病人</h1>
+	            			            		<h4>接口URL</h4>
+	            		<code>http://127.0.0.1:8000/treatships/search_patient/?patient_name=hdrh&doctor_phone=634622223</code>
+	            		<h4>请求方式</h4>
+	            		<code>GET</code>
+	            		<h4>请求 Content-Type</h4>
+	            		<code>multipart/form-data</code>
+
+	            		<!-- 开始 request_all_header -->
+	            		
+	            		<!-- 开始 request_header -->
+	            		
+	            		<!-- 开始 request_body -->
+	            			            			            		<div class="document-block-div request_body-div">
+		            		<h4>请求Body参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              						              			</tbody>
+		            		</table>
+		            	</div>
+	            								
+						<!-- 开始 request_Query -->
+	            			            		<div class="document-block-div request_query-div">
+		            		<h4>请求Query参数</h4>
+		            		<table>
+		              			<thead>
+		                			<tr>
+			                  			<th>参数</th>
+			                  			<th>示例值</th>
+			                  			<th>参数描述</th>
+			                  		</tr>
+		              			</thead>
+		              			<tbody>
+		              						              						              				<tr>
+			                  			<th>patient_name</th>
+			                  			<td>hdrh</td>
+			                  			<td>病人姓名</td>
+			                  		</tr>
+			                  				              						              						              				<tr>
+			                  			<th>doctor_phone</th>
+			                  			<td>634622223</td>
+			                  			<td>医生手机号</td>
+			                  		</tr>
+			                  				              						              			</tbody>
+		            		</table>
+		            	</div>
+	            		
+	            		<!-- 开始 response_header -->
+	            		
+	            		<!-- 开始 response_cookie -->
+	            		
+	            		<!-- 开始 response_body -->
+	            		
+	            		<!-- 开始 response_body_text_ishide -->
+	            			            		<h4>成功响应示例</h4>
+	            		<pre><code>[
+    {
+        "patient__patient_id": "5646758",
+        "patient__name": "hdrh",
+        "patient__main_illness": null,
+        "id__count": 2
+    }
+]</code></pre>
+	            		
+	            		<!-- 开始 response_body_error_text -->
+	            			          		</section>
+	        	</div>
+	      	</div>
+	      		      	<footer>
+	      		本文档由<a href="https://www.apipost.cn/?fr=doc" target="_blank">APIPOST接口调试与管理工具</a>生成
+	      	</footer>
+	    </div>
+	    <a href="javascript:;" class="navigation navigation-prev">
+	      	<i class="fa fa-angle-left" aria-hidden="true"></i>
+	    </a>
+	    <a href="javascript:;" class="navigation navigation-next" style="margin-right: 17px;">
+	      	<i class="fa fa-angle-right" aria-hidden="true"></i>
+	    </a>
+	</div>
+</div>
+<!-- 百度统计 -->
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?a046ce178828e393614822a297b8d296";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<span style="display: none;"><script type="text/javascript" src="https://s23.cnzz.com/z_stat.php?id=1276797738&web_id=1276797738"></script></span>
+</body>
+</html>
